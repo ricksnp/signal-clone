@@ -59,7 +59,14 @@ const HomeScreen = ({ navigation }) => {
                 </View>
             )
         })
-    }, [])
+    }, [navigation]);
+
+    const enterChat = (id, chatName) => {
+        navigation.navigate('Chat', {
+            id,
+            chatName
+        })
+    }
 
     return (
         // SafeAreaView, in reference to an iPhone for example, makes
@@ -70,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
             <ScrollView style={styles.container}>
                 {/* Remember to always have a key when rendering out via map */}
                 {chats.map(({ id, data: { chatName } }) => (
-                    <CustomListItem key={id} id={id} chatName={chatName} />
+                    <CustomListItem key={id} id={id} chatName={chatName} enterChat={enterChat} />
                 ))}
             </ScrollView>
         </SafeAreaView>
