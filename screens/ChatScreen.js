@@ -64,7 +64,7 @@ const ChatScreen = ({ navigation, route }) => {
 					<Avatar
 						rounded
 						source={{
-							uri: 'https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png',
+							uri: messages[messages.length - 1]?.data.photoURL,
 						}}
 					/>
 					<Text
@@ -101,7 +101,7 @@ const ChatScreen = ({ navigation, route }) => {
 				</View>
 			),
 		});
-	}, [navigation]);
+	}, [navigation, messages]);
 	return (
 		<SafeAreaView
 			style={{
